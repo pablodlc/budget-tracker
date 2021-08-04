@@ -41,9 +41,9 @@
       "type": "image/png"
     }
   ],
-  "name": "Budget Tracker",
-  "short_name": "bud-track",
-  "start_url": "/",
+  "name": "budget-tracker",
+  "short_name": "budget-tracker",
+  "start_url": "/index.html",
   "orientation": "portrait",
   "display": "standalone",
   "description": "A PWA Budget Tracker that works even when you have no connection. Useful if on vacation.",
