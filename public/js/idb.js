@@ -1,6 +1,6 @@
 let db;
 console.log("HERE!");
-const request = indexedDB.open('budgeTracker', 1);
+const request = indexedDB.open('budget-tracker', 1);
 console.log('request: ' + request);
 // When a new version is available, its data is saved to `db` and an ObjectStore is created
 request.onupgradeneeded = function (event) {
