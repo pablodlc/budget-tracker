@@ -4,7 +4,14 @@
 
 Click the following link to visit the deployed application: [budget-tracker](https://budget-tracker-pablodlc.herokuapp.com/).
 
-**budget-tracker** is
+Check out the YouTube video of **budget-tracker** in action by clicking the following link: [**budget-tracker**](https://www.youtube.com/watch?v=v0xPYAg_BtM).
+
+**budget-tracker** got that PWA! ⚡  
+**P**rogressive **W**eb **A**pplications ("**PWA**s") are powerful sites with a ton of utility. Any website can be made into a **PWA** by a loving programmer. **PWA**s have two awesome features: The first of their strengths is that they're functional regardless of connectivity. The second is that they can be installed as an application to nearly any modern device the user may have.  
+
+**PWA**s work regardless of their connectivity by running self-calling functions to determine their connection status. The first time a device connects to a **PWA**, a database is saved to the device and to the server. When any data is changed while connected, both databases are updated. If the application loses its connection, it stores any changes locally, running normally. When the application reconnects, it updates the server from the local database. Because of the applications running from two databases, they stay persistent.  
+
+
 
 Or watch the gif below!  
 ![**budget-tracker**](./assets/budget-tracker.gif)
@@ -38,78 +45,38 @@ This application was written following the guidelines laid out in the provided [
 
 As listed in `package.json`, this application has the following dependencies:  
 ![dependencies](./assets/dependencies.jpg)  
-At the root level of the application, open the terminal and run `npm i`.  
-To seed the database in MySql:
-
--   After the dependencies are installed, open MySql with the command `mysql -u root -p`, where `root` is your user name, followed by a prompt for your MySql password.
--   In the MySql shell, enter the command `source db/schema.sql;`
--   After the database is seeded, enter the command `exit`
-
-To seed the database from the command line, enter the following command in the terminal: `npm run seed`
+At the root level of the application, open the terminal and run `npm i`.
 
 ## Usage
+- [Starting **budget-tracker**](#starting-budget-tracker)
+- 
 
-To start the application, open the terminal at the root of the application with and enter the command `npm start`. If successful, the last line of the response in the terminal will be `App listening on port 3001!`. The application can then be opened using an API client or in the browser at [localhost:3001](localhost:3001). The gif in the [**Description**](#description) section demonstrates the application being used on [Insomnia](https://insomnia.rest/).  
-**e-comm** uses basic CRUD routes. The following URLs can fetch their namesake's data from the database.
+### Starting **budget-tracker**
+The application can be started anytime at its deployed location by clicking this link: [budget-tracker](https://budget-tracker-pablodlc.herokuapp.com/).
 
--   [localhost:3001/api/categories](localhost:3001/api/categories)
--   [localhost:3001/api/tags](localhost:3001/api/tags)
--   [localhost:3001/api/products](localhost:3001/api/products)
+To start the app locally, there are three commands that can be sent in the terminal at the root of the application:
 
-To search for an item by id, use the following URLs, using the correct `id` as the number at the end.
+-   `npm start`
+-   `node server`
+-   `nodemon server`
 
--   [localhost:3001/api/categories/1](localhost:3001/api/categories/1)
--   [localhost:3001/api/tags/2](localhost:3001/api/tags/2)
--   [localhost:3001/api/products/3](localhost:3001/api/products/3)
+All three of which are demonstrated in the gif below:  
+![budget-tracker](./assets/start.gif)  
+  
+---  
 
-To create a new item in the database, use the following URLs to `POST` into the corresponding data tables.
+Reference the diagrammed image below, and its associated list items immediately following it, for instructions on using the **budget-tracker** app:  
+![budget tracker markup](./assets/bt-markup.jpg)
 
--   [localhost:3001/api/categories](localhost:3001/api/categories)
--   [localhost:3001/api/tags](localhost:3001/api/tags)
--   [localhost:3001/api/products](localhost:3001/api/products)
-
-Then click on the `Body` dropdown menu below the address bar and select `JSON`. Ensure the URL is set to `categories`, `tags`, or `products` accordingly. Then enter the following JSON in the body and hit send:
-
-```js
-{ "category_name": "your category name here" }
-```
-
-```js
-{ "tag_name": "your tag name here" }
-```
-
-```js
-{
-  "product_name": "your category name here",
-//   `24.99` is a variable below. Enter the appropriate price here
-  "price": 24.99,
-//   `10` is a variable below. Enter the appropriate number of items in stock here.
-  "stock": 10,
-//   `tagIds` is an array associating ids to the product being created. Based on our `tag-seeds.js` file, the numbers in `[1, 2, 3]` below would associate the tags `"rock music"`, `"pop music"`, and `"blue"` with these new `tagsId` array items. The reason those three tags are associated to the new product is because 1, 2, and 3 are their ids, respectively.
-  "tagsId": [1, 2, 3]
-}
-```
-
-Below is an image from Insomnia demonstrating how to `POST` (create) a new category in **e-com**. Just change the .JSON content accordingly.  
-![post-cat_name](./assets/POST-catName.jpg)
-
-To update an item in **e-comm**, choose the `PUT` route in Insomnia, using the following addresses as examples where the numbers represent ids.
-
--   [localhost:3001/api/categories/1](localhost:3001/api/categories/1)
--   [localhost:3001/api/tags/2](localhost:3001/api/tags/2)
--   [localhost:3001/api/products/3](localhost:3001/api/products/3)
-
-Below is an image from Insomnia demonstrating how to `PUT` (update) the `category` with the id of 1.  
-![update by id](./assets/PUT-cat-by-id.jpg)
-
-To delete from **e-comm**, choose the `DELETE` route in Insomnia, using the following addresses as examples where the numbers represent ids.
-
--   [localhost:3001/api/categories/1](localhost:3001/api/categories/1)
--   [localhost:3001/api/tags/2](localhost:3001/api/tags/2)
--   [localhost:3001/api/products/3](localhost:3001/api/products/3)
-
-Below is an image from Insomnia demonstrating how to delete the `tag` with the id of 2.  
-![delete by id](./assets/DELETE-tag-by-id.jpg)
+1. `Header`: This is the header for the app, **budget-tracker**. The dollar amount dynamically updates based on the transactions.
+2. `Transaction Title`: When entering a transaction, enter the transaction name here.
+3. `Transaction Amount`: Enter the dollar amount of the transaction here.
+4. `+Add Funds Button`: After entering both the `Transaction Name` and `Transaction Amount`, click this button to **ADD** the `Transaction Amount` to the `Total`.
+4. `-Subtract Funds Button`: After entering both the `Transaction Name` and `Transaction Amount`, click this button to **SUBTRACT** the `Transaction Amount` to the `Total`.
+5. `Transactions Table`: This is a two-column table that records the `Transaction Names` and `Transaction Amounts` the user has entered into **budget-tracker** as rows in descending order in order of newest to oldest. 
+6. `Total Over Time Graph`: This graph dynamically generates and updates itself with the data from the user's input. 
+    - On the Y-Axis is the dollar amount; the top limit being the highest the total has been in this database's table. Conversely, the minimum dollar amount is the lowest total the database's table has been.
+    - On the X-Axis is the time span of the graph, in ascending order from left to right.  
 
 ## Future Developments
 
